@@ -1,2 +1,2 @@
-# JavaSpaceInvaders
-Space invaders in java.
+# JavaPong
+Pong but in Java
