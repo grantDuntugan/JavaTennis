@@ -23,6 +23,8 @@ public class Game extends JPanel{
 
     //Creates a new ball for the game
     Ball ball = new Ball(this);
+
+    //Creates a racquet for the game
     Racquet racquet = new Racquet(this);
 
     public Game() {
