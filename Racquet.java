@@ -30,10 +30,10 @@ public class Racquet {
 
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            xa = -1;
+            xa = -game.speed;
         }
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            xa = 1;
+            xa = game.speed;
         }
     }
 
@@ -42,6 +42,6 @@ public class Racquet {
     }
 
     public int getTopY() {
-        return Y;
+        return Y - HEIGHT;
     }
 }

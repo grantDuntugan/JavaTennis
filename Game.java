@@ -6,7 +6,8 @@
  * create comments and develop an understanding off of their code.
  */
 
-
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
@@ -26,6 +27,13 @@ public class Game extends JPanel{
 
     //Creates a racquet for the game
     Racquet racquet = new Racquet(this);
+
+    //Speed of the game
+    int speed = 1;
+
+    private int getScore() {
+        return speed - 1;
+    }
 
     public Game() {
         addKeyListener(new KeyListener() {
@@ -72,10 +80,16 @@ public class Game extends JPanel{
                 RenderingHints.VALUE_ANTIALIAS_ON);
         ball.paint(g2d);
         racquet.paint(g2d);
+
+        g2d.setColor(Color.GRAY);
+        g2d.setFont(new Font("Verdana", Font.BOLD, 30));
+        g2d.drawString(String.valueOf(getScore()), 10, 30);
     }
 
     public void gameOver() {
-        JOptionPane.showMessageDialog(this, "Game Over", "Game Over", JOptionPane.YES_NO_OPTION);
+        JOptionPane.showMessageDialog(this,
+                "your score is:" + getScore(), "Game Over",
+                JOptionPane.YES_NO_OPTION);
         System.exit(ABORT);
     }
 

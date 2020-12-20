@@ -23,22 +23,26 @@ public class Ball {
     }
 
     void move() {
+        boolean changeDirection = true;
         //If cases determine whether ball should move left/right/up/down
         if (x + xa < 0) {
-            xa = 1;
+            xa = game.speed;
         }
-        if (x + xa > game.getWidth() - 30) {
-            xa = -1;
+        else if (x + xa > game.getWidth() - 30) {
+            xa = -game.speed;
         }
-        if (y + ya < 0) {
-            ya = 1;
+        else if (y + ya < 0) {
+            ya = game.speed;
         }
-        if (y + ya > game.getHeight() - 30) {
+        else if (y + ya > game.getHeight() - 30) {
             game.gameOver();
         }
-        if (collision()) {
-            ya = -1;
+        else if (collision()) {
+            ya = -game.speed;
             y = game.racquet.getTopY() - DIAMETER;
+            game.speed++;
+        } else {
+            changeDirection = false;
         }
 
         //increments the position of the ball
